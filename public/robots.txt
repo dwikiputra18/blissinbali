@@ -1,0 +1,11 @@
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /checkout/
+Disallow: /car-rentals/checkout/
+
+# Sitemap location
+Sitemap: https://blissinbali.com/sitemap.xml
+
+# Crawl delay (optional)
+Crawl-delay: 1

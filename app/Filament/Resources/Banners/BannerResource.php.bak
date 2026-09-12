@@ -1,0 +1,45 @@
+<?php
+
+namespace App\Filament\Resources\Banners;
+
+use App\Filament\Resources\Banners\Pages;
+use App\Models\Banner;
+use Filament\Forms;
+use Filament\Forms\Form;
+use Filament\Resources\Resource;
+use Filament\Tables;
+use Filament\Tables\Table;
+
+class BannerResource extends Resource
+{
+    protected static ?string $model = Banner::class;
+
+    public static function getNavigationIcon(): string
+    {
+        return 'heroicon-o-photo';
+    }
+
+    public static function getNavigationLabel(): string
+    {
+        return 'Banner';
+    }
+
+    public static function getNavigationGroup(): ?string
+    {
+        return 'Konten Halaman';
+    }
+
+    public static function getNavigationSort(): ?int
+    {
+        return 1;
+    }
+
+    public static function getModelLabel(): string
+    {
+        return 'Banner';
+    }
+
+    public static function getPluralModelLabel(): string
+    {
+        return 'Banner';
+    }
