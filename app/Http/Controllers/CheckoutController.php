@@ -95,7 +95,7 @@ class CheckoutController extends Controller
         }
         $merchantFee = (int) round($baseAmount * 0.03);
         $totalAmount = $baseAmount + $merchantFee;
-        $sitePrefix = config('app.site.prefix', 'ZBT');
+        $sitePrefix = config('app.site.prefix', 'BIB');
 
         $booking = Booking::create([
             'booking_code' => $sitePrefix . '-BOOK-' . Str::upper(Str::random(8)),

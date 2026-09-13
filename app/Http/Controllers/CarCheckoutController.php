@@ -39,7 +39,7 @@ class CarCheckoutController extends Controller
         \Midtrans\Config::$isSanitized = true;
         \Midtrans\Config::$is3ds = true;
 
-        $sitePrefix = config('app.site.prefix', 'ZBT');
+        $sitePrefix = 'BIB';
 
         $booking = CarBooking::create([
             'booking_code' => $sitePrefix . '-CAR-' . Str::upper(Str::random(8)),

@@ -23,3 +23,9 @@ Homestead.json
 Homestead.yaml
 Thumbs.db
 ADMIN_PANEL_GUIDE.md
+blissinbali.db
+database/blissinbali.sqlite
+check_users.php
+MIDTRANS_SANDBOX_SETUP.md
+test_panel_access.php
+QA_WEBSITE_REPORT.md
