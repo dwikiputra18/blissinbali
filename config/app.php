@@ -124,5 +124,6 @@ return [
     ],
 
     'site_id' => env('APP_WEBSITE_ID', 1),
+    'admin_email' => env('ADMIN_EMAIL', 'admin@blissinbali.com'),
 
 ];
