@@ -3,14 +3,26 @@
 <?php $__env->startSection('content'); ?>
 <?php echo $__env->make('partials.hero-slider', ['banners' => $banners], array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?>
 
+Kode yang kamu tampilkan memiliki **2 ukuran card** utama:
+
+1. **Hero Card (Ukuran Besar)**: Card pilihan utama yang mengambil lebar 2 kolom dan 2 baris grid desktop (`col-span-2 lg:row-span-2`).
+2. **Remaining Card (Ukuran Kecil / Standar)**: Card destinasi lainnya yang hanya mengambil 1 kolom grid (`col-span-1`).
+
+---
+
+### Perbaikan Kode
+
+Untuk mengatasi masalah gambar pamflet/banner (seperti *"LOVINA SUNRISE"*) yang tulisan kiri-kanannya terpotong, kita menyesuaikan rasio aspek wadah gambarnya di card kecil menjadi **`aspect-[16/10]`** (lebih proporsional untuk banner) dan mengganti `object-cover` menjadi **`object-contain`** dengan latar belakang gelap. Dengan cara ini, seluruh gambar dan teks di dalamnya akan tampil utuh 100% tanpa ada yang terpotong.
+
+Berikut kode lengkapnya yang sudah diperbaiki:
+
+```html
 <section id="destinasi" class="py-20 relative overflow-hidden bg-[#dff3e8]">
     
     
-<div class="absolute inset-0 pointer-events-none bg-repeat bg-center" 
-     style="
-       background-color: #d8f3dc;
-       ">
-</div>
+    <div class="absolute inset-0 pointer-events-none bg-repeat bg-center" 
+         style="background-color: #d8f3dc;">
+    </div>
 
     
     <div class="absolute inset-0 bg-gradient-to-b from-[#effaf3]/70 via-transparent to-[#d2ecdf]/80 pointer-events-none"></div>
@@ -52,11 +64,11 @@
             <article class="package-card col-span-2 lg:col-span-2 lg:col-start-2 lg:row-start-2 lg:row-span-2 bg-white/90 backdrop-blur-sm rounded-xl lg:rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 group flex flex-col">
 
                 
-                <a href="<?php echo e(route('tour.show', $package)); ?>" class="flex items-center justify-center relative w-full aspect-video lg:aspect-auto lg:flex-1 overflow-hidden bg-gray-100">
+                <a href="<?php echo e(route('tour.show', $package)); ?>" class="flex items-center justify-center relative w-full aspect-video lg:aspect-auto lg:flex-1 overflow-hidden bg-gray-900">
                     <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if($package->thumbnail): ?>
-                    <img src="<?php echo e($package->thumbnail_url); ?>" alt="<?php echo e($package->title); ?>" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                    <img src="<?php echo e($package->thumbnail_url); ?>" alt="<?php echo e($package->title); ?>" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-700">
                     <?php elseif($package->images->isNotEmpty()): ?>
-                    <img src="<?php echo e($package->images->first()->image_url); ?>" alt="<?php echo e($package->title); ?>" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                    <img src="<?php echo e($package->images->first()->image_url); ?>" alt="<?php echo e($package->title); ?>" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-700">
                     <?php else: ?>
                     <div class="w-full h-full bg-gradient-to-br from-yellow-400 to-orange-500 flex items-center justify-center">
                         <i class="fas fa-image text-white text-4xl opacity-40"></i>
@@ -124,11 +136,12 @@
             ?>
             <article class="package-card <?php echo e($slotClass); ?> col-span-1 bg-white/90 backdrop-blur-sm rounded-xl lg:rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 group flex flex-col">
 
-                <a href="<?php echo e(route('tour.show', $package)); ?>" class="flex items-center justify-center relative w-full aspect-[4/3] lg:aspect-video overflow-hidden bg-gray-100">
+                
+                <a href="<?php echo e(route('tour.show', $package)); ?>" class="flex items-center justify-center relative w-full aspect-[16/10] overflow-hidden bg-gray-900">
                     <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if($package->thumbnail): ?>
-                    <img src="<?php echo e($package->thumbnail_url); ?>" alt="<?php echo e($package->title); ?>" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    <img src="<?php echo e($package->thumbnail_url); ?>" alt="<?php echo e($package->title); ?>" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500">
                     <?php elseif($package->images->isNotEmpty()): ?>
-                    <img src="<?php echo e($package->images->first()->image_url); ?>" alt="<?php echo e($package->title); ?>" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    <img src="<?php echo e($package->images->first()->image_url); ?>" alt="<?php echo e($package->title); ?>" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500">
                     <?php else: ?>
                     <div class="w-full h-full bg-gradient-to-br from-yellow-400 to-orange-500 flex items-center justify-center">
                         <i class="fas fa-image text-white text-3xl opacity-40"></i>
@@ -182,6 +195,7 @@
         </div>
     </div>
 </section>
+
 
 
 

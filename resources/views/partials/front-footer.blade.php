@@ -70,8 +70,8 @@
             <span class="block text-xs uppercase tracking-wider text-gray-400 mb-1">
                 Phone
             </span>
-            <a href="tel:+6281266718008" class="text-gray-300 text-sm hover:text-orange-400 transition-colors">
-                +6281266718008
+            <a href="tel:+628216087623" class="text-gray-300 text-sm hover:text-orange-400 transition-colors">
+                +628216087623
             </a>
         </div>
     </div>
@@ -84,10 +84,10 @@
                 Email
             </span>
             <a
-                href="mailto:hello@blissinbali.com"
+                href="mailto:blissinbali92@gmail.com"
                 class="text-gray-300 text-sm hover:text-orange-400 transition-colors break-all"
             >
-                hello@blissinbali.com
+                blissinbali92@gmail.com
             </a>
         </div>
     </div>

@@ -185,7 +185,7 @@ class CheckoutController extends Controller
     {
         $tourPackage = $booking->tourPackage;
 
-        $adminPhone = '+6281266718008';
+        $adminPhone = '+628216087623';
         $message = "Hello Admin, I have completed payment for a tour package:\n\n" .
                    "*Booking Code:* " . $booking->booking_code . "\n" .
                    "*Status:* PAID (Via Midtrans)\n" .

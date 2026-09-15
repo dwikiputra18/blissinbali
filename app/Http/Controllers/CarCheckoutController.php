@@ -121,7 +121,7 @@ class CarCheckoutController extends Controller
     {
         $carRental = $booking->carRental;
 
-        $adminPhone = '+6281266718008';
+        $adminPhone = '+628216087623';
         $message = "Hello Admin, I have completed payment for a car rental:\n\n" .
                    "*Booking Code:* " . $booking->booking_code . "\n" .
                    "*Status:* PAID (Via Midtrans)\n" .
