@@ -5,20 +5,6 @@
 @section('content')
 @include('partials.hero-slider', ['banners' => $banners])
 
-Kode yang kamu tampilkan memiliki **2 ukuran card** utama:
-
-1. **Hero Card (Ukuran Besar)**: Card pilihan utama yang mengambil lebar 2 kolom dan 2 baris grid desktop (`col-span-2 lg:row-span-2`).
-2. **Remaining Card (Ukuran Kecil / Standar)**: Card destinasi lainnya yang hanya mengambil 1 kolom grid (`col-span-1`).
-
----
-
-### Perbaikan Kode
-
-Untuk mengatasi masalah gambar pamflet/banner (seperti *"LOVINA SUNRISE"*) yang tulisan kiri-kanannya terpotong, kita menyesuaikan rasio aspek wadah gambarnya di card kecil menjadi **`aspect-[16/10]`** (lebih proporsional untuk banner) dan mengganti `object-cover` menjadi **`object-contain`** dengan latar belakang gelap. Dengan cara ini, seluruh gambar dan teks di dalamnya akan tampil utuh 100% tanpa ada yang terpotong.
-
-Berikut kode lengkapnya yang sudah diperbaiki:
-
-```html
 <section id="destinasi" class="py-20 relative overflow-hidden bg-[#dff3e8]">
     
     {{-- Decorative Background Pattern (Mint Satin) --}}
@@ -29,7 +15,7 @@ Berikut kode lengkapnya yang sudah diperbaiki:
     {{-- Layer Overlay Soft Light --}}
     <div class="absolute inset-0 bg-gradient-to-b from-[#effaf3]/70 via-transparent to-[#d2ecdf]/80 pointer-events-none"></div>
 
-    {{-- Konten Utama --}}
+    {{-- Konten Utama (Berada di Atas Layer Background) --}}
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         @php
             $destinationPackages = $featuredPackages->take(9)->values();
@@ -41,10 +27,10 @@ Berikut kode lengkapnya yang sudah diperbaiki:
                 ->values();
         @endphp
 
-        {{-- Main Grid Container --}}
+        {{-- Main Grid Container: 2 columns mobile, 4 columns desktop --}}
         <div class="destination-grid grid grid-cols-2 lg:grid-cols-4 lg:grid-rows-[auto_1fr_1fr] gap-3 lg:gap-6 items-stretch">
             
-            {{-- 1. Header Section --}}
+            {{-- 1. Header Section (Full Width di Mobile, Tengah Atas di Desktop) --}}
             <div class="col-span-2 lg:col-span-2 lg:col-start-2 lg:row-start-1 flex flex-col justify-center items-center text-center max-w-2xl mx-auto mb-6 lg:mb-4 lg:py-4">
                 <span class="text-indigo-600 font-bold uppercase tracking-wider text-[10px] lg:text-xs mb-1">The best picks from locals</span>
                 <h2 class="text-3xl md:text-4xl lg:text-5xl font-extrabold text-gray-900 mb-3 brand-font">Popular Destinations</h2>
@@ -58,7 +44,7 @@ Berikut kode lengkapnya yang sudah diperbaiki:
                 </a>
             </div>
 
-            {{-- 2. Hero Package (Card Ukuran Besar) --}}
+            {{-- 2. Hero Package (Card Besar - Sama persis seperti semula) --}}
             @if ($heroPackage)
             @php
                 $package = $heroPackage;
@@ -66,11 +52,11 @@ Berikut kode lengkapnya yang sudah diperbaiki:
             <article class="package-card col-span-2 lg:col-span-2 lg:col-start-2 lg:row-start-2 lg:row-span-2 bg-white/90 backdrop-blur-sm rounded-xl lg:rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 group flex flex-col">
 
                 {{-- Foto Hero --}}
-                <a href="{{ route('tour.show', $package) }}" class="flex items-center justify-center relative w-full aspect-video lg:aspect-auto lg:flex-1 overflow-hidden bg-gray-900">
+                <a href="{{ route('tour.show', $package) }}" class="flex items-center justify-center relative w-full aspect-video lg:aspect-auto lg:flex-1 overflow-hidden bg-gray-100">
                     @if ($package->thumbnail)
-                    <img src="{{ $package->thumbnail_url }}" alt="{{ $package->title }}" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-700">
+                    <img src="{{ $package->thumbnail_url }}" alt="{{ $package->title }}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
                     @elseif ($package->images->isNotEmpty())
-                    <img src="{{ $package->images->first()->image_url }}" alt="{{ $package->title }}" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-700">
+                    <img src="{{ $package->images->first()->image_url }}" alt="{{ $package->title }}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
                     @else
                     <div class="w-full h-full bg-gradient-to-br from-yellow-400 to-orange-500 flex items-center justify-center">
                         <i class="fas fa-image text-white text-4xl opacity-40"></i>
@@ -120,7 +106,7 @@ Berikut kode lengkapnya yang sudah diperbaiki:
             </article>
             @endif
 
-            {{-- 3. Remaining Packages (Card Ukuran Kecil) --}}
+            {{-- 3. Remaining Packages (Card Kecil - Hanya bagian ini yang disesuaikan) --}}
             @foreach ($remainingPackages as $package)
             @php
                 $slotClass = match ($loop->index) {
@@ -136,7 +122,7 @@ Berikut kode lengkapnya yang sudah diperbaiki:
             @endphp
             <article class="package-card {{ $slotClass }} col-span-1 bg-white/90 backdrop-blur-sm rounded-xl lg:rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 group flex flex-col">
 
-                {{-- Kontainer Gambar Disesuaikan Menggunakan aspect-[16/10] dan object-contain --}}
+                {{-- Disesuaikan dengan aspect-[16/10] dan object-contain untuk mencegah tulisan terpotong --}}
                 <a href="{{ route('tour.show', $package) }}" class="flex items-center justify-center relative w-full aspect-[16/10] overflow-hidden bg-gray-900">
                     @if ($package->thumbnail)
                     <img src="{{ $package->thumbnail_url }}" alt="{{ $package->title }}" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500">
