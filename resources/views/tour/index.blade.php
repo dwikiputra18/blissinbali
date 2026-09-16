@@ -268,7 +268,7 @@ function filterSubCategory(subName) {
         <p class="text-yellow-100 mb-8">
             Our travel experts are ready to craft a personalized Bali experience just for you — tell us your dream trip and we'll make it happen.
         </p>
-        <a href="https://wa.me/6281266718008"
+        <a href="https://wa.me/628216087623"
            target="_blank"
            class="inline-flex items-center gap-3 bg-white text-yellow-700 hover:bg-yellow-50 font-bold px-8 py-4 rounded-full shadow-lg transition-all duration-200 hover:shadow-xl">
             <i class="fab fa-whatsapp text-green-500 text-xl"></i>

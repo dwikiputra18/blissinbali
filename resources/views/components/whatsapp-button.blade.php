@@ -1,4 +1,4 @@
-<a href="https://wa.me/6281266718008?text=Hello,%20I%20came%20across%20your%20website%20blissinbali.com%20and%20I%E2%80%99m%20interested%20in%20your%20tour%20packages.%20Could%20you%20please%20share%20more%20information?"
+<a href="https://wa.me/+628216087623?text=Hello,%20I%20came%20across%20your%20website%20blissinbali.com%20and%20I%E2%80%99m%20interested%20in%20your%20tour%20packages.%20Could%20you%20please%20share%20more%20information?"
    target="_blank"
    rel="noopener noreferrer"
    class="fixed bottom-4 right-6 flex items-center justify-center z-50 hover:scale-110 transition-transform duration-300"

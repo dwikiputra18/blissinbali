@@ -228,7 +228,7 @@
 
                     {{-- TikTok --}}
                     <a
-                        href="https://www.tiktok.com/@blissinbali"
+                        href="https://www.tiktok.com/@bliss.in.bali.tour?_r=1&_t=ZS-99mLkqWBzrF"
                         target="_blank"
                         rel="noopener noreferrer"
                         aria-label="TikTok"
@@ -245,7 +245,7 @@
 
                     {{-- Facebook --}}
                     <a
-                        href="https://www.facebook.com/share/1AfJNHonWe/?mibextid=wwXIfr"
+                        href="https://www.facebook.com/people/Bliss-in-Bali/61592498724945/?_rdc=1&_rdr#"
                         target="_blank"
                         rel="noopener noreferrer"
                         aria-label="Facebook"
@@ -262,7 +262,7 @@
 
                     {{-- Instagram --}}
                     <a
-                        href="https://www.instagram.com/blissinbali/"
+                        href="https://www.instagram.com/bliss.inbali/"
                         target="_blank"
                         rel="noopener noreferrer"
                         aria-label="Instagram"
@@ -279,7 +279,7 @@
 
                     {{-- YouTube --}}
                     <a
-                        href="https://www.youtube.com/@blissinbali"
+                        href="#"
                         target="_blank"
                         rel="noopener noreferrer"
                         aria-label="YouTube"

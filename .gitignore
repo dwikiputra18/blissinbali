@@ -22,10 +22,11 @@
 Homestead.json
 Homestead.yaml
 Thumbs.db
-ADMIN_PANEL_GUIDE.md
+ADMIN_PANEL_USER_GUIDE.md
 blissinbali.db
 database/blissinbali.sqlite
 check_users.php
 MIDTRANS_SANDBOX_SETUP.md
 test_panel_access.php
 QA_WEBSITE_REPORT.md
+tests/Feature/TourBookingAdminPanelTest.php

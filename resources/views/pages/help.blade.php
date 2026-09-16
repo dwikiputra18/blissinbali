@@ -161,7 +161,7 @@
                 <a href="mailto:cs@blissinbali.com" class="bg-white text-indigo-700 hover:bg-gray-50 font-bold py-3.5 px-8 rounded-full transition-colors shadow-lg flex items-center gap-2">
                     <i class="fas fa-envelope"></i> Email Support
                 </a>
-                <a href="https://wa.me/6281266718008" target="_blank" class="bg-green-500 hover:bg-green-600 text-white font-bold py-3.5 px-8 rounded-full transition-colors shadow-lg flex items-center gap-2">
+                <a href="https://wa.me/628216087623" target="_blank" class="bg-green-500 hover:bg-green-600 text-white font-bold py-3.5 px-8 rounded-full transition-colors shadow-lg flex items-center gap-2">
                     <i class="fab fa-whatsapp text-lg"></i> Chat on WhatsApp
                 </a>
             </div>
